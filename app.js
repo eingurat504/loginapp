@@ -8,23 +8,7 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local'),Strategy;
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: 'localhost',
-    database: 'node_test',
-    user: 'root',
-    password: ''
-
-});
-
-connection.connect(function(error){
-    if(!error){
-        console.log('connected successfully'+ connection.threadId);
-    }else{
-        console.error('error connecting'+connection.stack);
-    }
-});
-
+var db = require('./models');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -90,6 +74,8 @@ app.use('/users', users);
 //Set Port
 app.set('port', (process.env.PORT || 3000));
 
-app.listen(app.get('port'), function(){
-    console.log('Server started on Port'+app.get('port'));
+db.sequelize.sync().then(function(){
+    app.listen(app.get('port'), function(){
+        console.log('Listening to PORT'+app.get('port'));
+    });
 });

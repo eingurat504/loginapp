@@ -5,7 +5,7 @@
         <div class="card bg-secondary shadow border-0">
             <div class="card-body px-lg-5 py-lg-5">
                 <div class="text-center text-muted mb-4">
-                    <small>Or sign up with credentials</small>
+                    <small>Sign up with credentials</small>
                 </div>
             {{#if errors}}
                 {{#each errors}}
@@ -13,6 +13,14 @@
                 {{/each}}
             {{/if}}
             <form method="POST" action="/users/register">
+                <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                        </div>
+                        <input class="form-control" name="username" placeholder="Username" type="text">
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="input-group input-group-alternative mb-3">
                         <div class="input-group-prepend">
