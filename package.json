@@ -28,11 +28,13 @@
     "express-validator": "*",
     "fs": "0.0.1-security",
     "mysql": "^2.16.0",
+    "mysql2": "^1.6.4",
     "node-cron": "^2.0.3",
     "nodemon": "^1.18.4",
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",
+    "pg": "^7.7.1",
     "sequelize": "^4.41.1"
   }
 }
